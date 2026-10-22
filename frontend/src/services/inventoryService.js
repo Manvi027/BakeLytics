@@ -1,5 +1,6 @@
-const PRIMARY_URL = "/api/ingredients";
-const FALLBACK_URL = "http://localhost:5000/api/ingredients";
+const API_BASE = import.meta.env.VITE_API_URL || "";
+const PRIMARY_URL = API_BASE ? `${API_BASE}/api/ingredients` : "/api/ingredients";
+const FALLBACK_URL = API_BASE ? `${API_BASE}/api/ingredients` : "http://localhost:5000/api/ingredients";
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem("bakelytics_token");

@@ -1,6 +1,7 @@
 // BakeLytics Authentication Service with Dual-Engine Connection (MongoDB Backend + Seamless Offline Fallback)
-const PRIMARY_URL = "/api/auth";
-const FALLBACK_URL = "http://localhost:5000/api/auth";
+const API_BASE = import.meta.env.VITE_API_URL || "";
+const PRIMARY_URL = API_BASE ? `${API_BASE}/api/auth` : "/api/auth";
+const FALLBACK_URL = API_BASE ? `${API_BASE}/api/auth` : "http://localhost:5000/api/auth";
 
 // Helper to get local accounts
 const getLocalAccounts = () => {

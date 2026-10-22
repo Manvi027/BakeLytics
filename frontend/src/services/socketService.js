@@ -4,8 +4,9 @@ let socketInstance = null;
 
 export const getSocket = () => {
   if (!socketInstance) {
-    // Connect to backend (proxied in dev or direct localhost:5000 fallback)
-    socketInstance = io("/", {
+    const socketEndpoint = import.meta.env.VITE_API_URL || "/";
+    // Connect to backend (proxied in dev, or deployed backend domain in production)
+    socketInstance = io(socketEndpoint, {
       transports: ["websocket", "polling"],
       autoConnect: true,
       reconnectionAttempts: 10,
