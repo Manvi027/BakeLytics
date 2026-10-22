@@ -1,0 +1,341 @@
+@import "tailwindcss";
+
+:root {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  --cream: #fbf7f0;
+  --cream-light: #fffdf9;
+  --cream-card: #f7efe4;
+  --beige: #eddccb;
+
+  --brown-dark: #2d180c;
+  --brown-deep: #1e0f07;
+  --brown: #8f5839;
+  --brown-light: #ab6d4a;
+  --amber-gold: #e2872d;
+  --sage-accent: #2e6047;
+
+  --text-primary: #2d180c;
+  --text-secondary: #6e5e54;
+  --text-muted: #96867c;
+
+  --border: #e9dcce;
+  --border-light: #f2e7db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--cream);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+@keyframes login-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes login-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(18px, -12px, 0) scale(1.05);
+  }
+}
+
+.login-panel,
+.login-copy {
+  animation: login-rise 700ms ease-out both;
+}
+
+.login-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  animation: login-drift 8s ease-in-out infinite;
+}
+
+.login-orb-one {
+  top: 4%;
+  left: 2%;
+  width: 13rem;
+  height: 13rem;
+  background: rgb(234 215 189 / 55%);
+  filter: blur(28px);
+}
+
+.login-orb-two {
+  right: 2%;
+  bottom: 4%;
+  width: 16rem;
+  height: 16rem;
+  background: rgb(231 210 183 / 50%);
+  filter: blur(34px);
+  animation-delay: -3s;
+}
+
+@keyframes modal-card-in {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slow-kenburns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate3d(-1%, -1.5%, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes float-badge {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.auth-modal-card {
+  animation: modal-card-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.auth-kenburns {
+  animation: slow-kenburns 22s ease-in-out infinite alternate;
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.auth-float-reverse {
+  animation: float-reverse 5.2s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(7px) rotate(-4deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4.5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 5.5s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.glass-card {
+  background: rgba(255, 250, 243, 0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(232, 218, 201, 0.75);
+}
+
+.glass-card-dark {
+  background: rgba(24, 13, 7, 0.78);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-panel,
+  .login-copy,
+  .login-orb,
+  .auth-modal-card,
+  .auth-kenburns,
+  .auth-float-badge,
+  .auth-float-reverse,
+  .auth-check-pop,
+  .pulse-soft {
+    animation: none !important;
+  }
+}
+
+::selection {
+  background: #dfc5a8;
+  color: var(--brown-dark);
+}
+
+/* Custom Artisan Range Slider */
+input[type="range"].artisan-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"].artisan-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: #ecdcc9;
+}
+
+input[type="range"].artisan-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 9999px;
+  background: #8f5839;
+  border: 3px solid #fffdf9;
+  box-shadow: 0 4px 10px rgba(79, 47, 32, 0.35);
+  margin-top: -7px;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].artisan-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+  background: #774328;
+}
+
+input[type="range"].artisan-slider:focus {
+  outline: none;
+}
+
+/* Artisan Ambient Glows & Card Aesthetics */
+.artisan-glow-amber {
+  box-shadow: 0 0 50px -10px rgba(226, 135, 45, 0.25);
+}
+
+.artisan-glow-warm {
+  box-shadow: 0 20px 60px -15px rgba(58, 28, 12, 0.18);
+}
+
+.artisan-glass-panel {
+  background: rgba(255, 253, 249, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(233, 220, 206, 0.85);
+}
+
+.artisan-dark-panel {
+  background: radial-gradient(circle at top left, #281409 0%, #170b05 100%);
+  border: 1px solid rgba(245, 237, 214, 0.12);
+}
+
+/* Smooth subtle grid pattern */
+.baker-grid-pattern {
+  background-image: radial-gradient(rgba(143, 88, 57, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

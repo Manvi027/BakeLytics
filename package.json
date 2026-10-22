@@ -1,0 +1,12 @@
+{
+  "name": "bakelytics",
+  "version": "1.0.0",
+  "description": "BakeLytics - Artisan Bakery Inventory Management System",
+  "private": true,
+  "scripts": {
+    "dev:backend": "npm run start --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "npm run dev --prefix frontend",
+    "start": "npm run start --prefix backend"
+  }
+}
